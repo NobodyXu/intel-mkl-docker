@@ -33,5 +33,5 @@ docker build --build-arg year=2019 --build-arg base=ubuntu:bionic -t intel-mkl:u
 
 Note that:
 
- - /path/to/this/repo can be the url to this repository, or it can be your local clone, or even a tar of the repository.
+ - `/path/to/this/repo` can be the url to this repository, or it can be your local clone, or even a tar of the repository.
  - For `podman` user, replace `docker` with `podman` and every works fine (I tested building using `podman` on my computer).
