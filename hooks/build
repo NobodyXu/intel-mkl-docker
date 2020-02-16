@@ -1,0 +1,4 @@
+#!/bin/bash -ex
+
+time docker build --build-arg base=debian:buster -t nobodyxu/intel-mkl:${DOCKER_TAG}-debian-buster .
+time docker build --build-arg base=ubuntu:bionic -t nobodyxu/intel-mkl:${DOCKER_TAG}-ubuntu-bionic .

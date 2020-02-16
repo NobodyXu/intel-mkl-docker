@@ -1,0 +1,4 @@
+#!/bin/bash -ex
+
+time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-debian-buster
+time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-ubuntu-bionic
