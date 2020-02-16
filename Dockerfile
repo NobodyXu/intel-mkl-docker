@@ -1,5 +1,3 @@
-ARG base=debian:buster
-ARG year=2020
 
 ## Install official Intel MKL repository for apt
 ## Commands below adapted from:
@@ -24,8 +22,10 @@ RUN curl --progress-bar https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-I
 RUN echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list
 
 # Install MKL
+ARG year=2020
 RUN apt-fast update && apt-fast install -y $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
+ARG base=debian:buster
 FROM $base AS configure-mkl
 COPY --from=install-mkl /opt/intel/ /opt/intel/
 
