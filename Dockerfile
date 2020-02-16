@@ -1,3 +1,5 @@
+ARG base=debian:buster
+
 ## Install official Intel MKL repository for apt
 ## Commands below adapted from:
 ##     https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
@@ -24,7 +26,6 @@ RUN echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/
 ARG year=2020
 RUN apt-fast update && apt-fast install -y $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
-ARG base=debian:buster
 FROM $base AS configure-mkl
 COPY --from=install-mkl /opt/intel/ /opt/intel/
 
