@@ -2,7 +2,7 @@
 
 Docker image that has intel-mkl installed. Provides debian image on docker hub.
 
-# Pull from docker hub
+## Pull from docker hub
 
 ```shell
 # The below will pull intel-mkl for debian:buster
@@ -12,7 +12,7 @@ docker pull nobodyxu/intel-mkl:debian-buster
 docker pull nobodyxu/intel-mkl:ubuntu-bionic
 ```
 
-# Build locally
+## Build locally
 
 ```shell
 # The below will build intel-mkl for debian:buster
