@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
-time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${debian_ver} | sed 's/:/-/') .
-time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${ubuntu_ver} | sed 's/:/-/') .
+time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${debian_ver} | sed 's/:/-/')
+time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${ubuntu_ver} | sed 's/:/-/')
