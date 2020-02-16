@@ -15,7 +15,7 @@ docker pull nobodyxu/intel-mkl:ubuntu-bionic
 # Build locally
 
 ```shell
-# The below will build intel-mkl for debian
+# The below will build intel-mkl for debian:buster
 docker build -t intel-mkl /path/to/this/repo
 
 # If you want to build for ubuntu, use
