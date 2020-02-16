@@ -40,7 +40,7 @@ RUN echo "/opt/intel/lib/intel64"     >  /etc/ld.so.conf.d/mkl.conf
 RUN echo "/opt/intel/mkl/lib/intel64" >> /etc/ld.so.conf.d/mkl.conf
 RUN ldconfig
 
-RUN echo "MKL_THREADING_LAYER=GNU" >> /etc/environment
-
 FROM $base AS final
 COPY --from=configure-mkl / /
+
+ENV MKL_THREADING_LAYER=GNU
