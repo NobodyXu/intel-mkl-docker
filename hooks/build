@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
-time docker build --build-arg base=debian:buster -t nobodyxu/intel-mkl:${DOCKER_TAG}-debian-buster .
-time docker build --build-arg base=ubuntu:bionic -t nobodyxu/intel-mkl:${DOCKER_TAG}-ubuntu-bionic .
+time docker build --build-arg base=${debian_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${debian_ver} | sed 's/:/-/') .
+time docker build --build-arg base=${ubuntu_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${ubuntu_ver} | sed 's/:/-/') .
