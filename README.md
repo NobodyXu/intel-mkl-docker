@@ -1,6 +1,6 @@
 # intel-mkl-docker
 
-Docker image that has intel-mkl installed. Provides debian image on docker hub.
+Docker image that has intel-mkl installed. Provides debian:buster and ubuntu:bionic based images on docker hub.
 
 ## Pull from docker hub
 
