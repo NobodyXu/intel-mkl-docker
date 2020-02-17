@@ -1,5 +1,16 @@
 # intel-mkl-docker
 
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/nobodyxu/intel-mkl)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/nobodyxu/intel-mkl)
+
+![Docker Pulls](https://img.shields.io/docker/pulls/nobodyxu/intel-mkl)
+
+![latest-ubuntu-bionic Layers](https://img.shields.io/microbadger/layers/nobodyxu/intel-mkl/latest-ubuntu-bionic)
+![latest-ubuntu-bionic Size](https://img.shields.io/microbadger/image-size/nobodyxu/intel-mkl/latest-ubuntu-bionic)
+
+![latest-debian-buster Layers](https://img.shields.io/microbadger/layers/nobodyxu/intel-mkl/latest-debian-buster)
+![latest-debian-buster Size](https://img.shields.io/microbadger/image-size/nobodyxu/intel-mkl/latest-debian-buster)
+
 Docker image that has intel-mkl installed. Provides debian:buster and ubuntu:bionic based images on docker hub.
 
 ## Pull from docker hub
