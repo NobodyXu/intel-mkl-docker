@@ -1,4 +1,6 @@
 #!/bin/bash -ex
 
-time docker build --build-arg base=${debian_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${debian_ver} | sed 's/:/-/') .
-time docker build --build-arg base=${ubuntu_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(echo ${ubuntu_ver} | sed 's/:/-/') .
+source hooks/functions.sh
+
+time docker build --build-arg base=${debian_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver}) .
+time docker build --build-arg base=${ubuntu_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${ubuntu_ver}) .
