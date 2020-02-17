@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+debian_base=$(echo ${debian_ver} | sed 's/:/-/')
+ubuntu_base=$(echo ${ubuntu_ver} | sed 's/:/-/')
+
+time docker build --build-arg base=${DOCKER_TAG}-${debian_base} -f Dockerfile-test .
+time docker build --build-arg base=${DOCKER_TAG}-${ubuntu_base} -f Dockerfile-test .

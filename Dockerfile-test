@@ -1,0 +1,21 @@
+ARG base=latest-debian-buster
+
+FROM nobodyxu/intel-mkl:$base
+
+# Avoid interactive configuration of packages
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install apt-fast to speed up downloading packages
+ADD apt-fast/* /tmp/apt-fast/
+RUN /tmp/apt-fast/install_apt-fast.sh
+
+# Install R
+RUN apt-fast update && apt-fast install -y --no-install-recommends r-base
+
+# Run the test, taken from https://github.com/eddelbuettel/mkl4deb#Use-the-mkl
+## Check libblas version
+### Print without indices in R according to:
+###     https://stackoverflow.com/questions/19943110/print-character-string-without-indices-in-r/19943171
+RUN [ -x $(Rscript -e 'cat(sessionInfo()$BLAS)') ]
+## Try running expression that uses libblas
+RUN Rscript -e "n <- 1e3 ; X <- matrix(rnorm(n*n),n,n);  system.time(svd(X))"
