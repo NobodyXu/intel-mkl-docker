@@ -5,9 +5,11 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/nobodyxu/intel-mkl)
 
+tag `latest-ubuntu-bionic`:
 ![latest-ubuntu-bionic Layers](https://img.shields.io/microbadger/layers/nobodyxu/intel-mkl/latest-ubuntu-bionic)
 ![latest-ubuntu-bionic Size](https://img.shields.io/microbadger/image-size/nobodyxu/intel-mkl/latest-ubuntu-bionic)
 
+tag `latest-debian-buster`:
 ![latest-debian-buster Layers](https://img.shields.io/microbadger/layers/nobodyxu/intel-mkl/latest-debian-buster)
 ![latest-debian-buster Size](https://img.shields.io/microbadger/image-size/nobodyxu/intel-mkl/latest-debian-buster)
 
