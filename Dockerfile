@@ -4,14 +4,7 @@ ARG base=debian:buster
 ## Commands below adapted from:
 ##     https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
 ##     https://github.com/eddelbuettel/mkl4deb
-FROM debian:buster AS install-mkl
-
-# Avoid interactive configuration of packages
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Install apt-fast to speed up downloading packages
-ADD apt-fast/* /tmp/apt-fast/
-RUN /tmp/apt-fast/install_apt-fast.sh
+FROM nobodyxu/apt-fast:latest-debian-buster AS install-mkl
 
 # Install basic software for adding apt repository and downloading source code to compile
 RUN apt-fast update && \
