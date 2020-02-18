@@ -2,8 +2,8 @@
 
 source hooks/functions.sh
 
-debian_base=$(v2f ${debian_ver})
-ubuntu_base=$(v2f ${ubuntu_ver})
+debian_base=$(v2t ${debian_ver})
+ubuntu_base=$(v2t ${ubuntu_ver})
 
 time docker build --build-arg base=${DOCKER_TAG}-${debian_base} -f Dockerfile-test .
 time docker build --build-arg base=${DOCKER_TAG}-${ubuntu_base} -f Dockerfile-test .
