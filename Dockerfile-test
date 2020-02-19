@@ -1,13 +1,13 @@
 ARG base=latest-debian-buster
 
+FROM nobodyxu/apt-fast:latest-debian-buster AS apt-fast
 FROM nobodyxu/intel-mkl:$base
 
 # Avoid interactive configuration of packages
 ENV DEBIAN_FRONTEND=noninteractive
-
 # Install apt-fast to speed up downloading packages
-ADD apt-fast/* /tmp/apt-fast/
-RUN /tmp/apt-fast/install_apt-fast.sh
+RUN apt-get update && apt-get install -y aria2
+COPY --from=apt-fast / /
 
 # Install R
 RUN apt-fast update && apt-fast install -y --no-install-recommends r-base
