@@ -6,7 +6,7 @@ FROM nobodyxu/intel-mkl:$base
 # Avoid interactive configuration of packages
 ENV DEBIAN_FRONTEND=noninteractive
 # Install apt-fast to speed up downloading packages
-RUN apt-get update && apt-get install -y aria2c
+RUN apt-get update && apt-get install -y aria2
 COPY --from=apt-fast / /
 
 # Install R
