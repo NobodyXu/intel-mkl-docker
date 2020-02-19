@@ -9,7 +9,7 @@ FROM nobodyxu/apt-fast:latest-debian-buster AS install-mkl
 # Install basic software for adding apt repository and downloading source code to compile
 RUN apt-fast update && \
     apt-fast install -y --no-install-recommends apt-transport-https ca-certificates gnupg2 gnupg-agent \
-                                                software-properties-common wget curl git apt-utils
+                                                software-properties-common curl apt-utils
 
 # Add key
 RUN curl --progress-bar https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB | apt-key add -
