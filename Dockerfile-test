@@ -6,7 +6,7 @@ FROM nobodyxu/intel-mkl:$base
 # Avoid interactive configuration of packages
 ENV DEBIAN_FRONTEND=noninteractive
 # Install apt-fast to speed up downloading packages
-COPY --from=apt-fast / /
+COPY --from=apt-fast /usr/local/ /usr/local/
 
 # Install R
 RUN apt-auto install -y --no-install-recommends r-base
