@@ -6,11 +6,10 @@ FROM nobodyxu/intel-mkl:$base
 # Avoid interactive configuration of packages
 ENV DEBIAN_FRONTEND=noninteractive
 # Install apt-fast to speed up downloading packages
-RUN apt-get update && apt-get install -y aria2
 COPY --from=apt-fast / /
 
 # Install R
-RUN apt-fast update && apt-fast install -y --no-install-recommends r-base
+RUN apt-auto install -y --no-install-recommends r-base
 
 # Run the test, taken from https://github.com/eddelbuettel/mkl4deb#Use-the-mkl
 ## Check libblas version
