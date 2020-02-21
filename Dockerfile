@@ -16,7 +16,7 @@ RUN echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/
 
 # Install MKL
 ARG year=2020
-RUN apt-auto install -y $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
+RUN apt-auto install -y '$(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)'
 
 FROM $base AS configure-mkl
 COPY --from=install-mkl /opt/intel/ /opt/intel/
