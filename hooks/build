@@ -2,5 +2,16 @@
 
 source hooks/functions.sh
 
-time docker build --build-arg base=${debian_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver}) .
-time docker build --build-arg base=${ubuntu_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${ubuntu_ver}) .
+for base in ${debian_ver} ${ubuntu_ver}; do
+    tag_postfix=$(v2t $base)
+    tag1=nobodyxu/intel-mkl:${DOCKER_TAG}-${tag_postfix}
+
+    time docker build --build-arg base=$base -t $tag1 .
+    docker tag $tag1 nobodyxu/intel-mkl:$(date +%Y)-${tag_postfix}
+done
+#
+#time docker build --build-arg base=${debian_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver}) .
+#time docker build --build-arg base=${ubuntu_ver} -t nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${ubuntu_ver}) .
+#
+#docker tag nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver}) nobodyxu/intel-mkl:$(date +%Y)-$(v2t ${debian_ver})
+#docker tag nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver}) nobodyxu/intel-mkl:$(date +%Y)-$(v2t ${debian_ver})
