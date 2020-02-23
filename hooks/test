@@ -3,7 +3,9 @@
 source hooks/functions.sh
 
 debian_base=$(v2t ${debian_ver})
+debian_slim=$(v2t ${debian_sml})
 ubuntu_base=$(v2t ${ubuntu_ver})
 
 time docker build --build-arg base=${DOCKER_TAG}-${debian_base} -f Dockerfile-test .
+time docker build --build-arg base=${DOCKER_TAG}-${debian_slim} -f Dockerfile-test .
 time docker build --build-arg base=${DOCKER_TAG}-${ubuntu_base} -f Dockerfile-test .

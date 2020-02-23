@@ -2,7 +2,7 @@
 
 source hooks/functions.sh
 
-for base in ${debian_ver} ${ubuntu_ver}; do
+for base in ${debian_ver} ${debian_sml} ${ubuntu_ver}; do
     tag_postfix=$(v2t $base)
 
     time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-${tag_postfix}
