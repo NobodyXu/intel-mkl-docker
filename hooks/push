@@ -2,15 +2,9 @@
 
 source hooks/functions.sh
 
-for base in ${debian_ver} ${debian_sml} ${ubuntu_ver}; do
+for base in $base_imgs; do
     tag_postfix=$(v2t $base)
 
     time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-${tag_postfix}
     time docker push nobodyxu/intel-mkl:$(date +%Y)-${tag_postfix}
 done
-#
-#time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${debian_ver})
-#time docker push nobodyxu/intel-mkl:${DOCKER_TAG}-$(v2t ${ubuntu_ver})
-#
-#time docker push nobodyxu/intel-mkl:$(date +%Y)-$(v2t ${debian_ver})
-#time docker push nobodyxu/intel-mkl:$(date +%Y)-$(v2t ${debian_ver})
