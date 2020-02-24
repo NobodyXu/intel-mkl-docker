@@ -21,6 +21,9 @@ Docker image that has intel-mkl installed. Provides debian:buster and ubuntu:bio
 # The below will pull newest intel-mkl for debian:buster
 docker pull nobodyxu/intel-mkl:debian-buster
 
+# The below will pull newest intel-mkl for debian:buster-slim
+docker pull nobodyxu/intel-mkl:debian-buster-slim
+
 # The below will pull newest intel-mkl for ubuntu:bionic
 docker pull nobodyxu/intel-mkl:ubuntu-bionic
 ```
