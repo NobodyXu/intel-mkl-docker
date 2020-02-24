@@ -4,7 +4,7 @@ ARG base=debian:buster
 ## Commands below adapted from:
 ##     https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
 ##     https://github.com/eddelbuettel/mkl4deb
-FROM nobodyxu/apt-fast:latest-debian-buster AS install-mkl
+FROM nobodyxu/apt-fast:latest-debian-buster-slim AS install-mkl
 
 # Install basic software for adding apt repository and downloading source code to compile
 RUN apt-auto install -y --no-install-recommends apt-transport-https ca-certificates gnupg2 gnupg-agent \

@@ -1,6 +1,6 @@
 ARG base=latest-debian-buster
 
-FROM nobodyxu/apt-fast:latest-debian-buster AS apt-fast
+FROM nobodyxu/apt-fast:latest-debian-buster-slim AS apt-fast
 FROM nobodyxu/intel-mkl:$base
 
 # Avoid interactive configuration of packages
