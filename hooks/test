@@ -3,5 +3,5 @@
 source hooks/functions.sh
 
 for base in $base_imgs; do
-    time docker build --build-arg base=${DOCKER_TAG}-$(v2t $base) -f Dockerfile-test.
+    time docker build --build-arg base=${DOCKER_TAG}-$(v2t $base) -f Dockerfile-test .
 done
