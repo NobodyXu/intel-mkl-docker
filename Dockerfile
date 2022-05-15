@@ -4,11 +4,12 @@ ARG base=debian:buster
 ## Commands below adapted from:
 ##     https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
 ##     https://github.com/eddelbuettel/mkl4deb
-FROM nobodyxu/apt-fast:latest-debian-buster-slim AS install-mkl
+FROM debian:stable-slim AS install-mkl
 
 # Install basic software for adding apt repository and downloading source code to compile
-RUN apt-auto install -y --no-install-recommends apt-transport-https ca-certificates gnupg2 gnupg-agent \
-                                                software-properties-common curl apt-utils
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apt-transport-https ca-certificates gnupg2 gnupg-agent \
+                                               software-properties-common curl apt-utils
 
 # Add key
 RUN curl --progress-bar https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB | apt-key add -
@@ -16,7 +17,8 @@ RUN echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/
 
 # Install MKL
 ARG year=2020
-RUN apt-auto install -y '$(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)'
+RUN apt-get update && \
+    apt-get install -y $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
 FROM $base AS configure-mkl
 COPY --from=install-mkl /opt/intel/ /opt/intel/
