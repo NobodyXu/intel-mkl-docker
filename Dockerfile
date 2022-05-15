@@ -29,7 +29,7 @@ RUN apt-get update && \
                     $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
 # Install build-essential
-RUN apt-get update && apt install -y build-essential
+RUN apt-get update && apt-get install -y build-essential
 
 # Install MKL
 RUN apt-get update && \
