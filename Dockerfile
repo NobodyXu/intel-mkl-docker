@@ -8,7 +8,7 @@ FROM debian:stable-slim AS install-mkl
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install basic software for adding apt repository and downloading source code to compile
+# Install basic software for adding apt repository
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-transport-https ca-certificates gnupg2 gnupg-agent \
                                                software-properties-common curl apt-utils
