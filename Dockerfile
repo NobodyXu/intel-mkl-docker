@@ -14,8 +14,12 @@ RUN apt-get update && \
                                                software-properties-common curl apt-utils
 
 # Add key
-RUN curl --progress-bar https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB | apt-key add -
-RUN echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list
+ENV BASE_URL=https://apt.repos.intel.com
+ENV GPG_URL=$BASE_URL/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+ENV GPG_FILE=/usr/share/keyrings/intel-gpg-archive-keyring.gpg
+
+RUN curl $GPG_URL | gpg --dearmor > $GPG_FILE
+RUN echo "deb [signed-by=$GPG_FILE] $BASE_URL/mkl all main" > /etc/apt/sources.list.d/intel-mkl.list
 
 # Install MKL
 ARG year=2020
