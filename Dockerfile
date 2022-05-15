@@ -24,7 +24,8 @@ RUN echo "deb [signed-by=$GPG_FILE] $BASE_URL/mkl all main" > /etc/apt/sources.l
 # Install MKL
 ARG year=2020
 RUN apt-get update && \
-    apt-get install -y $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
+    apt-get install -y --no-install-recommends \
+                    $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
 FROM $base AS configure-mkl
 COPY --from=install-mkl /opt/intel/ /opt/intel/
