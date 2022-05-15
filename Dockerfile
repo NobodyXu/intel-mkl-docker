@@ -1,5 +1,7 @@
 ARG base=debian:buster
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 ## Install official Intel MKL repository for apt
 ## Commands below adapted from:
 ##     https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
