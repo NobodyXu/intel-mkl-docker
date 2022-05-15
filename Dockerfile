@@ -21,8 +21,14 @@ ENV GPG_FILE=/usr/share/keyrings/intel-gpg-archive-keyring.gpg
 RUN curl $GPG_URL | gpg --dearmor > $GPG_FILE
 RUN echo "deb [signed-by=$GPG_FILE] $BASE_URL/mkl all main" > /etc/apt/sources.list.d/intel-mkl.list
 
-# Install MKL
 ARG year=2020
+
+# Download debs and cache them
+RUN apt-get update && \
+    apt-get install -y -d --no-install-recommends \
+                    $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
+
+# Install MKL
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
                     $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
