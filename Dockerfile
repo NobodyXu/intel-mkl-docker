@@ -32,8 +32,7 @@ RUN apt-get update && \
 RUN apt-get update && apt-get install -y build-essential
 
 # Install MKL
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-download --no-install-recommends \
                     $(apt-cache search intel-mkl-$year | cut -d '-' -f 1,2,3,4  | tail -n 1)
 
 FROM $base AS configure-mkl
